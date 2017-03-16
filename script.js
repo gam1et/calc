@@ -27,9 +27,10 @@ $(document).ready(function(){
     	credit=+credit;
     	var time = $('.time').val(); // N - количество месяцев
     	time=+time;
-    	var per_month = 19.49/12/100 // P - процент за месяц
+    	var per_month = 18/12/100 // P - процент за месяц
     	var result = 1+per_month;
-    	result=result**time;
+    	result=Math.pow(result,time);
+
     	result=result-1;
     	result=per_month/result;
     	result=per_month+result;
@@ -50,10 +51,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
 	// защита на случай, если пользователь вводит число меньше минимального и больше максимального
 	$('body').on('change','.credit, .time',function(){
 		var value=$(this).val();
@@ -64,6 +61,9 @@ $(document).ready(function(){
 
 		if( value<min ) {$(this).val(min);};
 		if( value>max ) {$(this).val(max);};
+
+		// ставим триггер на пересчет
+		$('.credit, .time').trigger('input');
 	})
 
 })
