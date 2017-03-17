@@ -12,10 +12,6 @@ $(document).ready(function(){
 		// получаем все необходимые значения элемента
 		var value=$(this).val();
 		var classname=$(this).attr('class');
-		var min=$(this).attr('min');
-		var max=$(this).attr('max');
-		min=+min;
-		max=+max;
 
 		// подставляем такое же значение в аналогичный input
 		$('.'+classname+'').each(function(){
